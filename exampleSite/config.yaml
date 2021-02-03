@@ -24,7 +24,7 @@ menu:
     weight: 2
   - name: Schedule
     pre: tag
-    url: /tags/
+    url: /schedule/
     weight: 3
   - name: Policies
     pre: smile
