@@ -35,12 +35,12 @@ menu:
     url: 'https://rstudio.cloud/'
     weight: 5    
   - name: Gradescope
-    pre: pen-tool
+    pre: file-text
     url: 'https://www.gradescope.com/'
     weight: 6
   - name: Moodle
-    pre: external-link
-    url: <a href="https://moodle.umass.edu/" target="_blank">Moodle</a>
+    pre: package
+    url: 'https://moodle.umass.edu/'
     weight: 7
 
 params:
