@@ -40,7 +40,7 @@ menu:
     weight: 6    
   - name: Gradescope
     pre: file-text
-    url: 'https://www.gradescope.com/'
+    url:  <a href="{{ https://www.gradescope.com/ }}" target="_blank">{{ Gradescope }}</a>
     weight: 7
   - name: Moodle
     pre: package
