@@ -6,8 +6,9 @@ title: "Schedule"
 
 ## Course Schedule
 
-Methods covered in this course include exploratory data analysis, correlation and bivariate analysis, linear regression, panel data regression, and probit/logistic regression. Collective and reflective learning will be the key cornerstone for excelling in this class! 
+Methods covered in this course include exploratory data analysis, correlation and bivariate analysis, linear regression, panel data regression, and probit/logistic regression. Collective and reflective learning will be the key cornerstone for excelling in this class!  
 
+{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
 | Class Schedule <span style="color: red">(*subject to change*)</span> |
 |--- |
 | **Week 1, 4-Feb	Course Overview, introduction to Statistics**  |
@@ -59,14 +60,18 @@ Methods covered in this course include exploratory data analysis, correlation an
 | **Week 12, 22-Apr	Project Presentation** | 
 | **Week 13, 29-Apr	Project Presentation** | 
 | Final project Report due on May 7th Friday by 11:59 PM  | 
-	
+{{< /bootstrap-table >}}
+
+*** 
 
 ## Assignment Schedule 
 
-There will be weekly lab assignments. Students will partner up and work on a data analysis project throughout the semester. Submit your assignments and quizzes via [**Gradescope**](https://www.gradescope.com/login). You should submit 2 copies: 1 for self-grading, 1 for official grading. 
+There will be weekly lab assignments. Students will partner up and work on a data analysis project throughout the semester. Submit your assignments and quizzes via [**Gradescope**](https://www.gradescope.com/login). You should submit 2 copies: 1 for self-grading, 1 for official grading.  
 
-### Assignments and Quizzes    
 
+### Assignments and Quizzes     
+
+{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
 | Assignments/Quizzes  | Submission Due at 5pm  | Self-grading Due at 5pm  | 
 | :--------:|:-------------------------:|:------------------------:| 
 | Lab 1 HW  |	Wed 2/10                  | Tue 2/16 | 
@@ -77,12 +82,15 @@ There will be weekly lab assignments. Students will partner up and work on a dat
 | Lab 6 HW  |	Wed 3/17                  |	Tue 3/23 | 
 | Lab 7 HW  |	Wed 3/24                  |	Tue 3/30 | 
 | Quiz 2    |	Wed 3/31                  |	Tue 4/6 | 
-  
-### Policy Research Report  
+{{< /bootstrap-table >}}
+*** 
 
+### Policy Research Report   
+
+{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
 |      February 2021    |	   March 2021   	| April 2021                | 
 | :--------------------:|:-----------------:|:------------------------: | 
 | Research Question	    | Select data set(s)|	Interpretation of results | 
 | Variable measures 	  | Data cleaning	    | Report write-up | 
 | Statistical method(s) |	Data analysis     |	Class presentation | 
-
+{{< /bootstrap-table >}}
