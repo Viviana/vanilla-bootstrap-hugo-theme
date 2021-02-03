@@ -1,6 +1,6 @@
 baseURL: https://example.com
 languageCode: en-us
-title: Vanilla
+title: SPP 608
 theme: vanilla-bootstrap-hugo-theme
 googleAnalytics: UA-123456789-1
 
@@ -18,19 +18,23 @@ menu:
     pre: home
     url: /
     weight: 1
-  - name: Blog
+  - name: Overview
     pre: edit
-    url: /post/
+    url: /overview/
     weight: 2
-  - name: Tags
+  - name: Schedule
     pre: tag
     url: /tags/
     weight: 3
-  - name: About
+  - name: Policies
     pre: smile
-    url: /about/
+    url: /policies/
     weight: 4
-  - name: RSS
+  - name: R Studio
+    pre: rss
+    url: /index.xml
+    weight: 5    
+  - name: Gradescope
     pre: rss
     url: /index.xml
     weight: 5
