@@ -8,7 +8,7 @@ title: "Schedule"
 
 Methods covered in this course include exploratory data analysis, correlation and bivariate analysis, linear regression, panel data regression, and probit/logistic regression. Collective and reflective learning will be the key cornerstone for excelling in this class!  
 
-{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
+{{< bootstrap-table "table table-striped table-bordered" >}}
 | Class Schedule <span style="color: red">(*subject to change*)</span> |
 |--- |
 | **Week 1, 4-Feb	Course Overview, introduction to Statistics**  |
@@ -71,7 +71,7 @@ There will be weekly lab assignments. Students will partner up and work on a dat
 
 ### Assignments and Quizzes     
 
-{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
+{{< bootstrap-table "table table-striped table-bordered" >}}
 | Assignments/Quizzes  | Submission Due at 5pm  | Self-grading Due at 5pm  | 
 | :--------:|:-------------------------:|:------------------------:| 
 | Lab 1 HW  |	Wed 2/10                  | Tue 2/16 | 
@@ -87,7 +87,7 @@ There will be weekly lab assignments. Students will partner up and work on a dat
 
 ### Policy Research Report   
 
-{{< bootstrap-table "table table-dark table-striped table-bordered" >}}
+{{< bootstrap-table "table table-striped table-bordered" >}}
 |      February 2021    |	   March 2021   	| April 2021                | 
 | :--------------------:|:-----------------:|:------------------------: | 
 | Research Question	    | Select data set(s)|	Interpretation of results | 
