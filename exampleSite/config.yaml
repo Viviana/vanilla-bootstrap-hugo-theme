@@ -23,7 +23,7 @@ menu:
     url: /overview/
     weight: 2
   - name: Schedule
-    pre: tag
+    pre: calendar
     url: /schedule/
     weight: 3
   - name: Policies
@@ -35,12 +35,12 @@ menu:
     url: 'https://rstudio.cloud/'
     weight: 5    
   - name: Gradescope
-    pre: rss
+    pre: pen-tool
     url: 'https://www.gradescope.com/'
     weight: 6
   - name: Moodle
-    pre: moodle_logo
-    url: <a href="https://moodle.umass.edu/'" target="_blank">Moodle</a>
+    pre: external-link
+    url: <a href="https://moodle.umass.edu/" target="_blank">Moodle</a>
     weight: 7
 
 params:
