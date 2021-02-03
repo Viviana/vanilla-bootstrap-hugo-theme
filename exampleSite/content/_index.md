@@ -1,8 +1,10 @@
 ---
 title: "SPP 608: Introduction to Statistics 2021"
 
-description: "This is an introductory statistical course designed for public policy students to analyze and solve statistical problems in the real world. The goal of this course is to familiarize students with a number of statistical techniques commonly used for analyzing different types of policy data. Throughout the course, it emphasizes two crucial aspects of students’ learning: 1) statistical analysis for policy data, and 2) presentation and interpretation of statistical results. While the course will cover some basic theory behind the majority of the statistical methods, it will focus mostly on their applications. Students will learn when each statistical test should be used and the assumptions behind each test. In addition, students will learn how to describe and interpret the output of the analyses that they run.  The free R open source software will be used for this course for conducting statistical analysis and data visualization."
-markup: "mmark"
+description: "This is an introductory statistical course designed for public policy students to analyze and solve statistical problems in the real world. The goal of this course is to familiarize students with a number of statistical techniques commonly used for analyzing different types of policy data. 
+
+Throughout the course, it emphasizes two crucial aspects of students’ learning: **1) statistical analysis for policy data, and 2) presentation and interpretation of statistical results**. While the course will cover some basic theory behind the majority of the statistical methods, it will focus mostly on their applications. Students will learn when each statistical test should be used and the assumptions behind each test. In addition, students will learn how to describe and interpret the output of the analyses that they run.  The free R open source software will be used for this course for conducting statistical analysis and data visualization."
+markup: "Goldmark"
 
 ---
 
@@ -23,7 +25,7 @@ This is an introductory statistical course designed for public policy students t
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
 ------------------|-------------------|------------------|------------------|------------------ 
-Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | <a href="mailto:vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://twitter.com/vivianacswu" title="Twitter"><i class="fa fa-twitter"></i></a> | Tue 11:00 - 12:30 and Thur 10:00 - 11:30 | Thompson 628
+Instructor        | [Viviana Wu](https://connectivecommons.cc/) | <a href="mailto:vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://twitter.com/vivianacswu" title="Twitter"><i class="fa fa-twitter"></i></a> | Tue 11:00 - 12:30 and Thur 10:00 - 11:30 | Thompson 628
 TA                | [Adrienne Nunez](https://www.linkedin.com/in/peter-hase-8092a6b9/) | <a href="mailto:amnunez@umass.edu" title="email">
             
 
