@@ -19,10 +19,13 @@ markup: "mmark"
 ### Teaching team and office hours 
 
 
-------------------|-------------------|------------------|
-Instructor        | [Viviana Wu](https://connectivecommons.cc/) | <a href="mailto:vivianachius@umass.edu" title="email"></a> | 
-TA                | [Adrienne Nunez](https://www.linkedin.com/in/peter-hase-8092a6b9/) | <a href="mailto:amnunez@umass.edu" title="email"> | 
+{.table .table-condensed .table-striped .text-left}
+<span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
+------------------|-------------------|------------------|------------------|------------------ 
+Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | <a href="mailto:vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; <a href="https://twitter.com/vivianacswu" title="Twitter"><i class="fa fa-twitter"></i></a> | Tue 11:00 - 12:30 and Thur 10:00 - 11:30 | Thompson 628
+TA                | [Adrienne Nunez](https://www.linkedin.com/in/peter-hase-8092a6b9/) | <a href="mailto:amnunez@umass.edu" title="email">
             
+  
 
 ### Recommended Readings
 
