@@ -30,18 +30,22 @@ menu:
     pre: smile
     url: /policies/
     weight: 4
+  - name: Class 
+    pre: book-open
+    url: /lectures/
+    weight: 5       
   - name: R Studio
     pre: rss
     url: 'https://rstudio.cloud/'
-    weight: 5    
+    weight: 6    
   - name: Gradescope
     pre: file-text
     url: 'https://www.gradescope.com/'
-    weight: 6
+    weight: 7
   - name: Moodle
     pre: package
     url: 'https://moodle.umass.edu/'
-    weight: 7
+    weight: 8
 
 params:
   includeBootstrapJs: false
