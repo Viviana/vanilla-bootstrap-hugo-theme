@@ -40,7 +40,7 @@ menu:
     weight: 6
   - name: Moodle
     pre: moodle_logo
-    url: 'https://moodle.umass.edu/'
+    url: <a href="https://moodle.umass.edu/'" target="_blank"></a>
     weight: 7
 
 params:
