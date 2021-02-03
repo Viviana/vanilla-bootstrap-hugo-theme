@@ -32,12 +32,16 @@ menu:
     weight: 4
   - name: R Studio
     pre: rss
-    url: /index.xml
+    url: 'https://rstudio.cloud/'
     weight: 5    
   - name: Gradescope
     pre: rss
-    url: /index.xml
-    weight: 5
+    url: 'https://www.gradescope.com/'
+    weight: 6
+  - name: Moodle
+    pre: moodle_logo
+    url: 'https://moodle.umass.edu/'
+    weight: 7
 
 params:
   includeBootstrapJs: false
