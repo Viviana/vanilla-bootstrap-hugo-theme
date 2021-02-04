@@ -56,7 +56,23 @@ params:
   footerText: Made with [Hugo](https://gohugo.io/) & [Vanilla](https://github.com/zwbetz-gh/vanilla-bootstrap-hugo-theme)
   hideFooter: false
   katex: true
-
+  author: Viviana C.S. Wu
+  thumbnail: /images/class_logo.png
+  instructor: 
+    name: Dr. Viviana Wu
+    email: vivianachius@umass.edu
+    url: "https://connectivecommons.cc"
+    twitter: vivianachius
+    github: viviana
+    office: Thompson 628
+    university: 
+    name: University of Massachusetts Amherst
+    url: "https://www.umass.edu"
+  school:
+    name: School of Public Policy
+    url: "https://www.umass.edu/spp/"
+  description: "Policy data for good."
+    
 markup:
   defaultMarkdownHandler: goldmark
   goldmark:
