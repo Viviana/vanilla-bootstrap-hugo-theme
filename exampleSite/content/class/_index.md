@@ -3,8 +3,13 @@ title: "Class"
 slug: 
 ---
 
-Week 1
+# Slides
 
-Week 2
+[Download the slides for all the lectures](https://drive.google.com/drive/folders/1FmYvlCEvHPCqVlULamf9oCJj_4YbViJ_?usp=sharing).
 
-`r blogdown::shortcode("schedule")`
+
+# R code
+
+The introductory R Markdown for Lab 1 [is here](/files/lab1.Rmd).
+
+
