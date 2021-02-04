@@ -16,7 +16,7 @@ markup: "mmark"
 
 #### Office Hour
 
-<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/j/99225858272" style="color:#ffa07a;" target="_blank">Zoom Link</a>  | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00pm   
+<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/my/vivianawu" style="color:#ffa07a;" target="_blank">Zoom Link</a>  | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00pm   
 
  
 ***
