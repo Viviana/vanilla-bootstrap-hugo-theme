@@ -1,5 +1,3 @@
-Week 1 Lab 1 
-
 ---
 title: "SPP608lab1"
 author: "Viviana Wu"
