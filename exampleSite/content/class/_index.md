@@ -1,3 +1,8 @@
+---
+title: "Class"
+slug: 
+---
+
 Week 1
 
 Week 2
