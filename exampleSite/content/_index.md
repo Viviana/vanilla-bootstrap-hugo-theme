@@ -1,5 +1,5 @@
 ---
-title: "SPP 608: Statistics for Public Policy"
+title: "608 Statistics for Public Policy"
 markup: "mmark"
 
 ---
