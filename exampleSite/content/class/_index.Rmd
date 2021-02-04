@@ -13,3 +13,6 @@ title: "Class"
 The introductory R Markdown for Lab 1 [is here](/files/lab1.Rmd).
 
 
+{{% class %}}
+
+
