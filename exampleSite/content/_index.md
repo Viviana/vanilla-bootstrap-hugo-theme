@@ -22,8 +22,8 @@ markup: "mmark"
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
 ------------------|-------------------|------------------|------------------|------------------ 
-Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | <a href="mailto:vivianachius@umass.edu" title="email"></a> &nbsp; <a href="https://twitter.com/vivianacswu" title="Twitter"><i class="fa fa-twitter"></i></a> | Thompson 628 | 
-TA                | [Adrienne Nunez] | <a href="mailto:amnunez@umass.edu" title="email">
+Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | [email](mailto:vivianachius@umass.edu)| Thompson 628 | 
+TA                | Adrienne Nunez | [email](mailto:amnunez@umass.edu)
             
   
 
