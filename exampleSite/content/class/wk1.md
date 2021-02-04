@@ -2,14 +2,9 @@
 title: "SPP608lab1"
 author: "Viviana Wu"
 date: "2/3/2021"
-output:
-  word_document: default
-  html_document: default
+
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## R Studio 
 
@@ -86,8 +81,8 @@ A data frame is a rectangular collection of values, usually organized so that **
 
 # Submit your Assignment 
 
-## Step 1: Double check if you answered all questions and check for accuracy ALWAYS!
+Step 1: Double check if you answered all the questions and check for accuracy ALWAYS!
 
-## Step 2: `Knit` your R Markdown document--move your cursor to the face-down triangle next to `Knit`, and choose for **a word or pdf document** (name your file as "Last name_HW1", e.g., Wu_HW1)  
+Step 2: `Knit` your R Markdown document--move your cursor to the face-down triangle next to `Knit`, and choose for **a pdf document** (name your file as "Last name_HW1.pdf", e.g., Wu_HW1.pdf)  
 
-## Step 3: Submit two copies of R Markdown documents to Gradescope <https://www.gradescope.com/>
+Step 3: Submit two copies of R Markdown documents to Gradescope <https://www.gradescope.com/>
