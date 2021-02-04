@@ -8,22 +8,19 @@ markup: "mmark"
 
 #### Lectures
 
-<font color="#6CA0DC"><i class="fas fa-university fa-lg"></i></font> Zoom!
+<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/j/99225858272" target="_blank">Zoom!</a> | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 5:30 - 7:00pm
 
-<font color="#6CA0DC"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 5:30 - 7:00pm
+#### Office Hour
 
-#### Labs
+<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> Zoom! | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00pm 
 
-<font color="#6CA0DC"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00 (optional)
-
-### Teaching team and office hours 
-
+### Teaching Team and Contact
 
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
 ------------------|-------------------|------------------|------------------|------------------ 
-Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | [email](mailto:vivianachius@umass.edu)| Thompson 628 | 
-TA                | Adrienne Nunez | [email](mailto:amnunez@umass.edu)
+Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | <a href="vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; | Thompson 628 | 
+TA (Grading)      | Adrienne Nunez | <a href="amnunez@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; 
             
   
 
