@@ -19,7 +19,7 @@ markup: "mmark"
 {.table .table-condensed .table-striped .text-left}
 <span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
 ------------------|-------------------|------------------|------------------|------------------ 
-Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/) | <a href="vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; | Thompson 628 | 
+Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/), Ph.D. | <a href="vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; | Thompson 628 | 
 TA (Grading)      | Adrienne Nunez | <a href="amnunez@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; 
             
   
