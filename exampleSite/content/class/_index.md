@@ -1,6 +1,6 @@
 ---
 title: "Class"
-slug: 
+
 ---
 
 # Slides
