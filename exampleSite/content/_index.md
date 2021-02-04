@@ -8,11 +8,11 @@ markup: "mmark"
 
 #### Lectures
 
-<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/j/99225858272" target="_blank">Zoom!</a> | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 5:30 - 7:00pm
+<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/j/99225858272" style="color:#ffa07a;" target="_blank">Zoom Link</a> | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 5:30 - 7:00pm
 
 #### Office Hour
 
-<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> Zoom! | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00pm 
+<font color="#ffa07a"><i class="fas fa-university fa-lg"></i></font> <a href="https://umass-amherst.zoom.us/j/99225858272" style="color:#ffa07a;" target="_blank">Zoom Link</a>  | <font color="#ffa07a"><i class="fas fa-calendar-alt fa-lg"></i></font> Thur 4-5:00pm 
 
 ### Teaching Team and Contact
 
