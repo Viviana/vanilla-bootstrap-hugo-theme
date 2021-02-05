@@ -26,7 +26,7 @@ markup: "mmark"
 ### Teaching Team and Contact
 
 {.table .table-condensed .table-striped .text-left}
-   
+<span></span>     | <span></span>     | <span></span>    | <span></span>    |  <span></span>      
 ------------------|-------------------|------------------|------------------|------------------ 
 Instructor        | [Viviana Chiu Sik Wu](https://connectivecommons.cc/), Ph.D. | <a href="mailto:vivianachius@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; | Thompson 628 | 
 TA (Grading)      | Adrienne Nunez | <a href="mailto:amnunez@umass.edu" title="email"><i class="fa fa-envelope"></i></a> &nbsp; 
@@ -39,7 +39,7 @@ There will be no required textbook for this class; however, here are some textbo
 
 
 {.table .table-condensed .table-striped .text-left}
-
+<span></span>     | <span></span>     | <span></span>    |
 -----------|---------------------------------|----------------------------------
 [R for Data Science](http://r4ds.had.co.nz/) | Grolemund & Wickham | O'Reilly, 1st edition, 2016
 [R cookbook](https://rc2e.com/index.html) | Long & Teetor | O'Reilly Media, 2019 
