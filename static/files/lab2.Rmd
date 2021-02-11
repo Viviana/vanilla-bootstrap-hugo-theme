@@ -1,0 +1,337 @@
+---
+title: "SPP608 Statistical Methods For Public Policy Lab 2"
+author: "Viviana Wu"
+date: "2/11/2021"
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 4
+    highlight: tango
+    theme: lumen
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Lecture
+
+Slides for Week 2 is available [here](https://docs.google.com/presentation/d/1vIfUgwOKx0wVSsujtuyLB6OFf6OqYxnw1gfLlpoH-NA/edit?usp=sharing)
+
+
+###  
+
+In this tutorial, you will learn how to:
+
+* use import, explore and visualize a dataset
+* understand a data structure of variables in R 
+* make decisions to clean the data 
+
+## Step 1: Import a Dataset
+
+'data' is the variable where the data will be stored.  If the parameter "header=" is "TRUE", then the first row will be treated as the row names. These data were reported in Almond, D., Chay, K. Y., & Lee, D. S. (2005). The costs of low birth weight. *The Quarterly Journal of Economics*, 120(3), 1031-1083. which is made available via Stock, J. H., & Watson, M. W. (2020). *Introduction to Econometrics.* 4th ed. Pearson. NY: New York. 
+```{r}
+# data <- read.csv("birthweight_smoking.csv",header=TRUE, sep=",")
+```
+
+Desktop version (We'll walk through next week): If your data is not stored in the project file, you will need to insert the full path for your data, remember to use the forward slash '/" 
+
+For instance, the original file path is: "C:\Users\bijou\OneDrive - University of Massachusetts\SPP Stats 608 2021\Labs\Data sets\birthweight_smoking.csv". You will change to the following and replace the backward slash '\' to '/'. 
+
+```{r}
+data <- read.csv("C:/Users/bijou/OneDrive - University of Massachusetts/SPP Stats 608 2021/Labs/Data sets/birthweight_smoking.csv",header=TRUE, sep=",") 
+
+# Now on your right panel in your global environment, you should see 'data' stored. It has 3,000 observations (i.e., 3,000 rows) and 12 variables (i.e., 12 columns). 
+
+```
+
+What if our data was saved as an Excel sheet (.xlsx)? We first install a new package called "readxl": **install.packages("readxl")** and run the following codes:
+```{r}
+# install.packages("readxl")
+# library(readxl)
+# data <- read_excel("birthweight_smoking.xlsx") 
+```
+Alternatively, you can open it through the files pane (in the lower right panel) by clicking the .xlsx file
+
+***
+
+## Step 2. Exploratory Data Analysis  
+
+### dim()   
+Examine the dimensions of your dataset, it returns two numbers: (1) # of Rows (2) # of Columns.	
+```{r}
+dim(data)
+```
+
+### options(scipen=999)
+Remove the scientific notation in the format of our data.
+```{r}
+options(scipen=999)
+```
+
+### colnames()
+What are the variables included in the dataset?
+```{r}
+colnames(data)
+```
+
+### head()
+`head()` shows the first six rows of a dataset. 
+```{r}
+head(data)
+```
+
+
+### str()
+Examine the data structure of the variables in the data frame (factor,numeric,integer,etc.).
+```{r}
+str(data)
+# want to find out the type of data structure for a particular variable? Try it yourself.
+
+```
+
+### summary()
+Examine the summary statistics of variables in the dataset, what can you learn from it?
+```{r}
+summary(data)
+
+# Important: Check against the "Documentation for Birthweight_Smoking.pdf" to understand the meaning of the variable and the labeling system. 
+```
+
+We can take a closer look into specifc variables in the `data`. We use `$` to indicate that we are looking for a variable of interest within `data`. For instace, we want to find out the data structure and summary information ofthe  `smoker` variable within the `data` dataset. 
+```{r}
+str(data$smoker)
+summary(data$smoker)
+
+# What is the data structure of `data$smoker`?
+
+```
+
+### Q1: Can you repeat the above example for **a continuous variable** and **a dummy variable** in the dataset? 
+ > Remember, R is case-sensitive, needs to be an exact match. You can copy the variable names from summary result. 
+
+Tips: A dummy variable has dichotomous values, e.g., 0 or 1, 1 or 2, etc. A continuous variable has continuous numerical values.
+
+A Continuous variable: ________
+```{r}
+# use str() and summary()
+
+```
+
+Describe the mean, median, minimum and maximum of the variable here: __________
+
+  
+A Dummy variable: _________
+```{r}
+# use str() and summary()
+
+
+```
+Describe the minimum and maximum of the dummary variable here: __________
+
+
+### rename_at() from library(dplyr) 
+
+To rename a variable `ï..nprevist`, we can use the function `rename_at()` from `library(dplyr)`.  
+```{r , eval=FALSE}
+# install.packages("dplyr")
+library(dplyr)
+data <- data %>% rename_at("ï..nprevist",~"nprevist")  # rename_at("old name), ~"new name")
+summary(data)
+# A initutive but two step approach: 
+    # data$nprevist <- data$ï..nprevist  # create a new variable from data$ï..nprevist 
+    # data$ï..nprevist <- NULL # remove this variable
+    # str(data)
+```
+
+***   
+
+## Step 3: Data Cleaning
+
+Before proceeding to analyze our data, we have to do some data cleaning. 
+
+### as.factor() & assign labels
+
+For a dummy variable, we need to change the structure from an integer to a factor (categorical/dummy) variable in R. 
+
+For categorical variables, we can only count the occurrence in each categories, unlike for continuous variables we can measure the values and measure the distribution (mean, median, variance, etc.). 
+```{r}
+data$smoker <- as.factor(data$smoker)   # change the data structure to a factor variable in R
+
+str(data$smoker)  # Now, check if the data structure for `smoker` has changed 
+
+summary(data$smoker)  # See how the summary statistics has changed. 
+
+# We can **assign value labels** to the variable `smoker` (0 = no, 1=yes).
+
+data$smoker <- factor(data$smoker,levels = c(0,1),labels = c("no", "yes"))
+summary(data$smoker)
+
+```
+
+### Q2: Change the data type of another dummy variable, and assign the value labels. 
+
+Dummy variable: _______
+```{r}
+
+
+
+```
+
+
+Let's **create a new variable** for birthweight in oz (instead of grams) named `birthweight_oz` by multiplying `birthweight` by 0.035274. (Grams to Ounces formula: oz = g * 0.035274)
+```{r}
+data$birthweight_oz <- data$birthweight * 0.035274
+summary(data$birthweight_oz)
+```
+
+### NULL 
+
+Sometimes, you want to **delete** a variable. For instance, you can remove the variable `no_previst` from the `data` as follows: 
+```{r}
+data$no_previst<-NULL
+```
+
+### subset()
+
+**Subset the data** by a specific family id number by the family id number 16922, by the value of home94 equal to 1, and lastly, adding an additional condition that NFA94 has a value greater than 10000. 
+```{r}
+summary(data)
+data_smoker <- subset(data, data$smoker == 1)
+data_adult <- subset(data, data$age >= 18) 
+data_smoker_adult <- subset(data, data$smoker == 1 & data$age >= 18) 
+```
+Try it yourself!
+
+###  Q3: Subset the data and create a new dataframe, choose any critera!
+
+```{r}
+# data_new <- subset(data, data$____ (an operator) ___ )
+
+
+```
+
+***  
+
+## Step 4: Data Visualization
+
+### table() and prop.table()
+
+Create a **frequency table** of a factor variable; The frequencies are ordered and labeled by the levels attribute of the factor.
+```{r}
+table(data$smoker)   # How many 0s and 1s in `smoker`?
+
+# let's label the value!
+data$smoker <- factor(data$smoker,levels = c(0,1),labels = c("no", "yes")) 
+
+table(data$smoker) # you can see the label now.
+
+# We can express table as proportion tables or fraction Of marginal table of two variables. 
+
+# for one variable
+round(prop.table(table(data$unmarried)),2) 
+round(prop.table(table(data$educ)),2)
+
+# for two variables
+prop.table(table(data$unmarried, data$smoker), margin=2)   # row = unmarried, column = smoker
+```
+
+### hist()
+Create a histogram for the continuous variable (also our dependent variable) `birthweight` and examine the distribution, how would you describe the distribution?
+```{r}
+hist(data$birthweight)
+```
+
+### ggplot(): Histogram
+
+Create a histogram and a scatterplot, what can you observe from the graph?
+```{r warning=FALSE, message=FALSE, eval=TRUE}
+# install.packages("ggtheme")
+# install.packages("ggplot2")
+library(ggplot2)
+library(ggthemes) 
+
+ggplot(data, aes(birthweight)) +
+  geom_histogram() 
+
+# For histograms with tick marks between each bin, use `geom_bar` with
+# `scale_x_binned`.
+ggplot(data, aes(birthweight)) +
+  geom_bar() +
+  scale_x_binned()
+```
+
+
+### Q4: Use `ggplot()` to create a histogram for another continuous variable other than `birthweight`
+
+```{r}
+
+
+
+```
+
+
+### ggplot(): Scatterplot 
+
+```{r warning=FALSE, message=FALSE , eval=TRUE}
+library(dplyr)
+data <- data %>% rename_at("ï..nprevist",~"nprevist")  # rename_at("old name), ~"new name") # make sure R got the new name for nprevist
+
+plot <- ggplot(data, aes(x=nprevist, y=birthweight)) + geom_point() +
+  stat_smooth(method="lm", se=FALSE)
+
+plot 
+
+# can add themes  
+
+plot + labs(title = "Scatterplot of prenatal visits and birth weight of infant", 
+            subtitle = "Lab 2") + labs(caption = "(based on data in Pennsylvania in 1989)") +
+       geom_point(color='lightblue4') +
+       geom_smooth(method="lm", colour="black", size=0.5) + 
+       labs(x = "Number of Prenatal Visits", y = "Infants' birthweight (in grams)") +
+       theme_economist(base_size = 10, base_family = "sans") 
+  
+
+  # Other themes e.g., theme_grey, theme_bw, theme_linedraw, theme_light, theme_dark, theme_minimal or theme_classic
+  # customize your theme
+  # https://www.r-bloggers.com/custom-themes-in-ggplot2/ 
+  # https://ggplot2.tidyverse.org/reference/geom_histogram.html 
+
+
+```
+
+### Q5: Plot a new scatterplot using `ggplot()` with a new independent variable (x)
+Feel free to add themes, labels, colors that make your graph look AWESOME!
+Tips: Continuous variables will have a "nicer" visualization 
+
+```{r}
+# plot_new <- ggplot(data, aes(x= _____ , y=birthweight)) + geom_point() +
+#  stat_smooth(method="lm", se=FALSE)
+
+# plot_new 
+
+
+```
+
+
+### R Operators
+
+R has several operators to perform tasks including arithmetic, logical and bitwise operations.
+
+| Operator | Meaning |
+|-------- | ------- |
+| <  | less than |
+| <=	| less than or equal to |
+| >	| greater than |
+| >=	| greater than or equal to|
+| ==	|exactly equal to |
+|  !=	|not equal to |
+| !x	|Not x |
+| x | y |x OR y |
+| x & y	|x AND y |
+| isTRUE(x)	|test if X is TRUE |
+
+***
+
+
