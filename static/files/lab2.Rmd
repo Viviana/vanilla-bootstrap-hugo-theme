@@ -2,14 +2,20 @@
 title: "SPP608 Statistical Methods For Public Policy Lab 2"
 author: "Viviana Wu"
 date: "2/11/2021"
-output: 
-  html_document:
+output:
+  pdf_document:
     toc: yes
-    toc_depth: 4
+    toc_depth: '4'
+  html_document:
     highlight: tango
     theme: lumen
     toc_float: yes
 ---
+
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -18,9 +24,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Lecture
 
 Slides for Week 2 is available [here](https://docs.google.com/presentation/d/1vIfUgwOKx0wVSsujtuyLB6OFf6OqYxnw1gfLlpoH-NA/edit?usp=sharing)
-
-
-###  
 
 In this tutorial, you will learn how to:
 
@@ -32,17 +35,17 @@ In this tutorial, you will learn how to:
 
 'data' is the variable where the data will be stored.  If the parameter "header=" is "TRUE", then the first row will be treated as the row names. These data were reported in Almond, D., Chay, K. Y., & Lee, D. S. (2005). The costs of low birth weight. *The Quarterly Journal of Economics*, 120(3), 1031-1083. which is made available via Stock, J. H., & Watson, M. W. (2020). *Introduction to Econometrics.* 4th ed. Pearson. NY: New York. 
 ```{r}
-# data <- read.csv("birthweight_smoking.csv",header=TRUE, sep=",")
+data <- read.csv("birthweight_smoking.csv",header=TRUE, sep=",")
+
+# Now on your right panel in your global environment, you should see 'data' stored. It has 3,000 observations (i.e., 3,000 rows) and 12 variables (i.e., 12 columns). 
+
 ```
 
 Desktop version (We'll walk through next week): If your data is not stored in the project file, you will need to insert the full path for your data, remember to use the forward slash '/" 
 
-For instance, the original file path is: "C:\Users\bijou\OneDrive - University of Massachusetts\SPP Stats 608 2021\Labs\Data sets\birthweight_smoking.csv". You will change to the following and replace the backward slash '\' to '/'. 
 
 ```{r}
-data <- read.csv("C:/Users/bijou/OneDrive - University of Massachusetts/SPP Stats 608 2021/Labs/Data sets/birthweight_smoking.csv",header=TRUE, sep=",") 
-
-# Now on your right panel in your global environment, you should see 'data' stored. It has 3,000 observations (i.e., 3,000 rows) and 12 variables (i.e., 12 columns). 
+# data <- read.csv("C:/Users/bijou/OneDrive - University of Massachusetts/SPP Stats 608 2021/Labs/Data sets/birthweight_smoking.csv",header=TRUE, sep=",") 
 
 ```
 
@@ -93,10 +96,11 @@ str(data)
 
 ### summary()
 Examine the summary statistics of variables in the dataset, what can you learn from it?
+Important: Check against the "Documentation for Birthweight_Smoking.pdf" to understand the meaning of the variable and the labeling system. 
+
 ```{r}
 summary(data)
 
-# Important: Check against the "Documentation for Birthweight_Smoking.pdf" to understand the meaning of the variable and the labeling system. 
 ```
 
 We can take a closer look into specifc variables in the `data`. We use `$` to indicate that we are looking for a variable of interest within `data`. For instace, we want to find out the data structure and summary information ofthe  `smoker` variable within the `data` dataset. 
@@ -132,7 +136,7 @@ Describe the minimum and maximum of the dummary variable here: __________
 
 
 ### rename_at() from library(dplyr) 
-
+If you use a desktop version, you might have this naming problem. 
 To rename a variable `ï..nprevist`, we can use the function `rename_at()` from `library(dplyr)`.  
 ```{r , eval=FALSE}
 # install.packages("dplyr")
@@ -157,14 +161,16 @@ For a dummy variable, we need to change the structure from an integer to a facto
 
 For categorical variables, we can only count the occurrence in each categories, unlike for continuous variables we can measure the values and measure the distribution (mean, median, variance, etc.). 
 ```{r}
-data$smoker <- as.factor(data$smoker)   # change the data structure to a factor variable in R
+# change the data structure to a factor variable in R
+data$smoker <- as.factor(data$smoker)   
 
-str(data$smoker)  # Now, check if the data structure for `smoker` has changed 
+# Now, check if the data structure for `smoker` has changed 
+str(data$smoker)  
 
-summary(data$smoker)  # See how the summary statistics has changed. 
+# See how the summary statistics has changed. 
+summary(data$smoker)  
 
 # We can **assign value labels** to the variable `smoker` (0 = no, 1=yes).
-
 data$smoker <- factor(data$smoker,levels = c(0,1),labels = c("no", "yes"))
 summary(data$smoker)
 
@@ -226,9 +232,10 @@ table(data$smoker)   # How many 0s and 1s in `smoker`?
 data$smoker <- factor(data$smoker,levels = c(0,1),labels = c("no", "yes")) 
 
 table(data$smoker) # you can see the label now.
+```
 
-# We can express table as proportion tables or fraction Of marginal table of two variables. 
-
+We can express table as proportion tables or fraction Of marginal table of two variables. 
+```{r}
 # for one variable
 round(prop.table(table(data$unmarried)),2) 
 round(prop.table(table(data$educ)),2)
@@ -238,6 +245,7 @@ prop.table(table(data$unmarried, data$smoker), margin=2)   # row = unmarried, co
 ```
 
 ### hist()
+
 Create a histogram for the continuous variable (also our dependent variable) `birthweight` and examine the distribution, how would you describe the distribution?
 ```{r}
 hist(data$birthweight)
@@ -255,8 +263,7 @@ library(ggthemes)
 ggplot(data, aes(birthweight)) +
   geom_histogram() 
 
-# For histograms with tick marks between each bin, use `geom_bar` with
-# `scale_x_binned`.
+# For histograms with tick marks between each bin, use `geom_bar` + `scale_x_binned`.
 ggplot(data, aes(birthweight)) +
   geom_bar() +
   scale_x_binned()
@@ -275,8 +282,6 @@ ggplot(data, aes(birthweight)) +
 ### ggplot(): Scatterplot 
 
 ```{r warning=FALSE, message=FALSE , eval=TRUE}
-library(dplyr)
-data <- data %>% rename_at("ï..nprevist",~"nprevist")  # rename_at("old name), ~"new name") # make sure R got the new name for nprevist
 
 plot <- ggplot(data, aes(x=nprevist, y=birthweight)) + geom_point() +
   stat_smooth(method="lm", se=FALSE)
@@ -332,6 +337,31 @@ R has several operators to perform tasks including arithmetic, logical and bitwi
 | x & y	|x AND y |
 | isTRUE(x)	|test if X is TRUE |
 
+
 ***
 
+## SELF-GRADING (upon receiving the answer key)
+
+ * Step 1: Check if you got the correct answers for all questions. 
+ 
+  **All correct:**  
+  Type the grading of your homework and do a short recap of what you learn:
+  e.g., All Correct, statastic!!! I have learnt... 
+  
+  **Some mistakes:**
+  Explain the mistakes made and re-do the coding in the code chunk below. 
+
+```{r}
+# provide question number and re-run codes here. 
+
+
+
+
+```
+
+ * Step 2: `Knit` your R Markdown document--move your cursor to the upside-down triangle next to `Knit`, and choose for **PDF**.  
+
+ * Step 3: Submit this updated copy of R Markdown PDF to Gradescope **Lab 2 Assignment (Self-graded)** <https://www.gradescope.com/>
+
+*** 
 
