@@ -1,0 +1,331 @@
+---
+title: "SPP608 Statistical Methods Lab 3"
+author: "Viviana Wu"
+date: "2/17/2021"
+output:
+  html_document:
+    highlight: haddock
+    theme: lumen
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '4'
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Lecture
+
+Slides for Week 3 is available [here](https://docs.google.com/presentation/d/1zopgNKI0dvzkl9zJb64-JMzhWgR_nlagO-PpGVEqN98/edit?usp=sharing)
+
+In this tutorial, you will learn how to:
+
+* run a hypothesis test and find the p-value
+* have some fun with R: visualize longitudinal data 
+* make decisions to transform the variables
+
+Basic Set-up
+```{r}
+options(digits = 2) # results will round to two significant digits
+
+# options(scipen=999) # Remove the scientific notation in the format of our data.
+
+```
+
+# PART 1 Hypothesis Testing using t-test
+
+
+Step 0. Look at the Data Documentation
+
+Check the `Documentation for Birthweight_Smoking` in your project folder.
+
+## Step 1. Import a Dataset (+Save a Copy!)
+Your `filename.csv` needs to be exact and indicate the file format, which is a .csv file (Comma Separated Values file)--a delimited text file that uses a comma to separate values. It is one types of Excel spreadsheet besides the common .xlsx format)
+```{r}
+data <- read.csv("birthweight_smoking.csv",header=TRUE, sep=",")
+
+data1 <- data # data1 is now the spare copy shall we "mess up" our `data`!
+
+# Now on your right panel in your global environment, you should see 'data' stored. It has 3,000 observations (i.e., 3,000 rows) and 12 variables (i.e., 12 columns). 
+```
+
+
+## Step 2. Data Cleaning (especially our IV and DV)
+
+Before proceeding to analyze our data, we have to do some data cleaning. 
+
+### as.factor()
+
+For a dummy variable, we need to change the structure from an integer to a factor (categorical/dummy) variable in R. 
+Look at the `smoker` variable. Let's not label it for now, if we want to stick with the levels of "0" and "1".
+```{r}
+summary(data)
+str(data)
+
+data$smoker <- as.factor(data$smoker)    
+str(data$smoker)
+
+```
+
+Q1 Change all the dummy variables in the data into a factor structure. 
+```{r}
+
+
+
+```
+
+
+## Step 3. Exploratory Data Analysis  
+
+### describe() from `psych` library
+
+Besides the mean, median, min and max, find out the standard deviation (sd), skewness, kurtosis and inter-quartile range (The IQR is the difference between Q3 and Q1).  
+```{r}
+# install.packages("psych")
+summary(data$birthweight)
+
+library(psych)
+describe(data$birthweight, IQR=TRUE)
+```
+
+### boxplot()  Any Extreme Outliners?
+
+Using boxplot() we tell R to create a horizontal box plot. Horizontal and vertical box plots display the distribution of data by using a rectangular box and whiskers. Whiskers are lines that indicate a data range outside of the box. The "interquartile range", abbreviated "IQR", is just the width of the box in the box-and-whisker plot. 
+```{r}
+boxplot(data$birthweight)
+```
+
+
+## Step 4. Data Visualization  
+
+### ggplot2 for histogram with density plot
+
+A density plot is a smoothed version of the histogram. It displays the distribution of a numeric variable using a kernel density estimate to show the probability density function of the continuous variable.  
+```{r warning=FALSE, message=FALSE, eval=TRUE}
+library(ggplot2)
+
+# A basic histogram from last week
+ggplot(data, aes(birthweight)) +
+  geom_histogram() 
+
+# Histogram with density plot
+ggplot(data, aes(birthweight)) + 
+  labs(title = "Graph 1: Histogram and Kernel Density of Birthweight") +
+  geom_histogram(aes(y=..density..), colour="black", fill="white")+
+  geom_density(alpha=.2, fill="#FF6666")
+
+# save the last ggplot graphic! After running the code, the PDF file stored in your project space
+ggsave("histogram_birthweight.pdf", width = 6, height = 4)
+ # won't work for basic R plots
+
+# simplified version of density plot
+density_bw <- density(data$birthweight)
+plot(density_bw)
+```
+
+### Q2 In the space below (after `>`) Describe the distribution of the variable birthweight, including mean, median, the IQR, shape, skewness (symmetry) and kutosis (masses in tails). See Week 2 lecture note. 
+
+> 
+
+
+***
+
+## Step 4: Hypothesis Testing: Welch Two Sample t-test
+
+```{r}
+t.test(birthweight ~ smoker, data = data) 
+
+### options(scipen=999) to remove the scientific notation in the format of our data.
+options(scipen=999)
+t.test(birthweight ~ smoker, data = data) 
+
+# for t-test, variable label or factor structure doesn't matter.
+```
+
+
+### Q3 Your turn, run a `t.test()` to test the difference across two groups in the sample.  
+
+a) Which dummy variable(s) among `data$unmarried`, `data$tripre0` and `data$alcohol` might make a significant difference in the birthweight of infants? Which don't?
+b) What conclusion can you draw from the t-test result? Interpret your findings based on the mean difference of the two groups and p-value at the 0.05 level. (See WK3 lecture slides)
+
+```{r}
+
+
+```
+
+## One-way ANOVA test
+
+The one-way analysis of variance (ANOVA) is similar to the independent two-samples t-test we did earlier, but can be used for comparing means across **more than two groups**. Think of one categorical factor variable with 3 levels that denote the three types of volunteers to test the validity of vaccines: (1) control group, (2) vaccine 1 group, (3) vaccine 2 group.  
+
+This is a good explanation and demonstration of conducting one-way anova test in R. 
+http://www.sthda.com/english/wiki/one-way-anova-test-in-r 
+
+***
+
+
+# PART 2: Visualize Longitudinal Data
+
+## Step 1. Import and explore your dataset
+
+The American Presidency Project: Presidential Job Approval 
+_"Question: Do you approve or disapprove of the way [enter President name] is handling his job as President?"_
+
+Estimation of monthly averages using presidential approval data from ROPER center. The data is drawn from the Gallup Poll and compiled by Gerhard Peters, publicly available here:
+<https://www.presidency.ucsb.edu/statistics/data/presidential-job-approval>
+
+```{r}
+potus <- read.csv("ApprovalPOTUS_DT.csv")  # name your dataset, here I use potus
+summary(potus)
+str(potus)
+```
+
+## Step 2. Transform to the Date structure
+
+### as.Date + order
+```{r}
+# Since `potus$Start.Date` is a `date` object, we need to transform it from `chr` = 
+potus$Start.Date = as.Date(potus$Start.Date,"%m/%d/%Y") 
+potus = potus[order(potus$Start.Date),]
+
+View(potus)
+
+head(potus)
+```
+
+## Step 3: Plotting Longnitudinal Data
+
+### plot()
+
+Run the whole code chuck using the green triangle on your right! Separate lines won't work for making this graph.
+```{r warning=FALSE, message=FALSE, eval=TRUE}
+# Plotting longnitudinal data using base R function `plot()`
+plot(x = potus$Start.Date, y = potus$Approving, pch = 18, col = "blue", type = "lm", 
+  main = "Donald Trump Approval Ratings 2017 - 2020", ylim=c(0,80),
+  xlab = "Year", ylab="Presidential Approval Rate (%)",
+   sub = "Source: The American Presidency Project")
+# Add a second and third lines
+lines(x = potus$Start.Date, y = potus$Disapproving, pch = 18, col = "red")     
+lines(x = potus$Start.Date, y = potus$Unsure.NoData, pch = 18, col = "gray")
+# Add a legend to the plot
+legend("topleft", legend=c("Approving", "Disapproving","Unsure/NoData"),
+       col=c("red", "blue","gray"), lty = 1:2, cex=0.8 )
+
+
+```
+
+### ggplot2 with `library(tidyverse)`
+
+(A little bit more advanced but a lot nicer!) For more examples, see <https://www.r-graph-gallery.com/279-plotting-time-series-with-ggplot2.html>
+<https://style.tidyverse.org/pipes.html> 
+<https://tidyr.tidyverse.org/articles/pivot.html>
+
+* Use pipe `%>%` to emphasize a sequence of actions
+* %>% should always have a space before it, and should usually be followed by a new line.
+
+```{r warning=FALSE, message=FALSE, eval=TRUE}
+library(ggplot2)
+library(ggthemes)
+
+# Data preparation
+# install.packages("tidyverse")
+library(tidyverse)
+
+# 1st line. Create a new dataset for easy data handling (new.data <- potus)
+# 2nd line. Select the relevant variables to use for the new "long form" dataset
+# 3rd line. `pivot_longer` the selected variable (without `Start.Date` to make a new categorical variable)
+new.data <- potus %>%
+  select(Start.Date, Approving, Disapproving, Unsure.NoData) %>%
+  pivot_longer(!Start.Date, names_to = "variable", values_to = "value")
+  
+# Compare the original and new data structure
+head(potus)
+head(new.data)
+
+# Look at the variable levels and make it a factor
+summary(new.data$variable <- factor(new.data$variable))
+
+# Visualization
+ggplot(new.data, aes(x = Start.Date, y = value)) + 
+  geom_line(aes(color = variable, linetype = variable)) + 
+  scale_color_manual(values = c("steelblue", "darkred","grey3")) +
+    scale_x_date(date_labels = "%b '%Y") +
+    labs(title = "Donald Trump Approval Ratings, 2017-2020",
+    y = "Presidential Approval Rate (%)",
+    x = "", 
+    caption = "Source: The American Presidency Project") +
+    scale_y_continuous(limits = c(0, 80), breaks = waiver()) +
+    theme_minimal(base_size = 10, base_family = "sans") 
+
+
+```
+
+Now, save your NEW AMAZING GRAPH in a high resolution PDF in your folder!!
+```{r warning=FALSE, message=FALSE, eval=FALSE}
+ggsave("approval_DT.pdf", width = 6, height = 4)
+```
+
+
+
+### Q4 Your turn, do the same for a president, choose any one! 
+
+Download your data file via <https://www.presidency.ucsb.edu/statistics/data/presidential-job-approval>
+Upload to your project folder, or your Cloud project space.
+
+Step 1. Import and exploreyour dataset
+```{r}
+
+```
+
+
+Step 2. Transform to the Date structure
+```{r}
+
+```
+
+
+
+Step 3. Visualize the approval rate overtime, use the basic `plot()` or `ggplot()` , entirely up to you.
+```{r}
+
+
+
+```
+
+
+
+##  Fun Time: Change the theme of R Studio!
+
+Check out other themes: <https://r-coder.com/rstudio-themes/> ; <https://blog.rstudio.com/2018/10/29/rstudio-ide-custom-theme-support/>
+
+For my personal R studio Desktop, I'm using [“Fira Code iScript”](https://towardsdatascience.com/customize-your-rstudio-theme-914cca8b04b1) and customized ["Candy Brights"](https://tmtheme-editor.herokuapp.com/#!/editor/theme/Candy%20Brights) theme!
+
+
+## SELF-GRADING by 
+
+**Step 1:** Check if you got the correct answers for all questions. 
+ 
+  **All correct:**  
+  Type the grading of your homework and do a short recap of what you learn:
+  e.g., All Correct, statastic!!! I have learned... 
+  
+  **Some mistakes:**
+  Explain the mistakes made and re-do the coding in the code chunk below. 
+
+```{r}
+# provide question number and re-run codes here. 
+
+
+
+
+```
+
+**Step 2:** `Knit` your R Markdown document--move your cursor to the upside-down triangle next to `Knit`, and choose for **PDF**.  
+
+**Step 3:** Submit this updated copy of R Markdown PDF to Gradescope **Lab 3 Assignment (Self-graded)** <https://www.gradescope.com/>
+
+*** 
