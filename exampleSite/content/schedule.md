@@ -78,8 +78,7 @@ There will be weekly lab assignments. Students will partner up and work on a dat
 | Lab 2 HW  |	Wed 2/17                  | Tue 2/23 | 
 | Lab 3 HW  |	Wed 2/24                  | Tue 3/2 | 
 | Quiz 1    |	Wed 3/3                   | Tue 3/9 | 
-| Lab 5 HW  |	Wed 3/10                  |	Tue 3/16 | 
-| Lab 6 HW  |	Wed 3/17                  |	Tue 3/23 | 
+| Lab 5+6 HW  |	Wed 3/17                  |	Tue 3/23 | 
 | Lab 7 HW  |	Wed 3/24                  |	Tue 3/30 | 
 | Quiz 2    |	Wed 3/31                  |	Tue 4/6 | 
 {{< /bootstrap-table >}}
